@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Puppy Catcher</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>Puppy Catcher</h1>
+
+
+  <div class="menu-div">
+
+  <a href="game.html" class="play-button button">Play</a>
+  <!-- using link to game page instead of button since canvas doesn't work properly after -->
+  <!-- <button class="play-button">Play Marathon</button> -->
+
+
+  <!-- medium modal -->
+  <button type="button" id="help-button" class="button" data-toggle="modal" data-target=".bs-example-modal-md">Help</button>
+
+  <div id="help-modal" class="modal fade bs-example-modal-md help-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog modal-md" role="document">
+      <div id="help-content" class="modal-content">
+        <h2>Help</h2>
+        <p>Left and right arrow keys move the tetromino left or right.
+        <br>Up arrow key rotates the tetromino.
+        <br>Down arrow key soft drops the tetromino.
+        <br>Space bar hard drops the tetromino.</p>
+        <p>Completing a line will clear the line.
+        <br>Clear as many lines as you can.
+        <br>If the lines reach the top, you lose!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- medium modal  - pops up along with help button, so leaving for now-->
+  <!-- <button type="button" id="about-button" class="button" data-toggle="modal" data-target=".bs-example-modal-md">About</button>
+
+  <div id="about-modal" class="modal fade bs-example-modal-md about-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div id="about-modal-content" class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        About
+      </div>
+    </div>
+  </div> -->
+
+  </div>
+
+  <button class="retry-button button">Play Again</button>
+
+  <div class="game-container">
+    <canvas id="tetris" class="my-game" width="240" height="400"></canvas>
+    <!-- <p>Here is the game.</p> -->
+  </div>
+
+  <div class="retry-button">
+    <!-- <p>Here is the retry screen.</p> -->
+  </div>
+
+  <script
+    src="http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous">
+  </script>
+  <script
+    src="js/script.js">
+  </script>
+
+</body>
+</html>
