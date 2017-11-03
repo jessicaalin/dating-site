@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Raleway:400');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700|Acme');
 
 * {
   margin: 0 auto;
@@ -16,22 +16,25 @@ canvas {
 }
 
 h1 {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Acme', sans-serif;
   font-size: 100px;
   font-weight: 400;
   padding: 50px 0;
 }
 
+h3,
 p {
   font-family: 'Raleway', sans-serif;
 }
 
+body,
 .menu-div {
   display: flex;
   text-align: center;
   flex-flow: column;
 }
 
+.game-header a,
 .menu-div a {
   text-decoration: none;
   color: azure;
@@ -52,8 +55,42 @@ p {
 .modal {
   color: dimgray;
   margin: 200px auto;
+  font-size: 20px;
 }
 
-.game-header {
-  padding: 59px 0 49px 0;
+.lose-modal {
+  font-size: 20px;
+}
+
+.lose-modal button {
+  background-color: rgb(220, 220, 220);
+  color: white;
+}
+
+canvas {
+  border: 2px solid black;
+}
+
+.puppies-saved {
+  margin-right: 40px;
+}
+
+.images img {
+  width: 30%;
+  /*display: block;*/
+  align-self: center;
+}
+
+.images {
+  width: 600px;
+  justify-content: center;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 auto;
+  padding: 70px 0;
+}
+
+.images .arrow {
+  width: 8%;
+  /*padding: 0px 10px;*/
 }
