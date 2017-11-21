@@ -1,0 +1,20 @@
+<h2>Sign Up</h2>
+
+<%if (typeof errorMessage !== "undefined") {%>
+  <p>
+    <%=errorMessage%>
+  </p>
+<%}%>
+
+<form method="post" action="/process-signup">
+  <label for="full-name-input">Full Name</label>
+  <input id="full-name-input" type="text" placeholder="Regina Phalange" name="signupFullName">
+  <br>
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email" placeholder="regina.phalange@gmail.com" name="signupEmail">
+  <br>
+  <label for="password-input">Password</label>
+  <input id="password-input" type="password" placeholder="alterego" name="signupPassword">
+  <p>
+  <button>Sign Up</button>
+</form>

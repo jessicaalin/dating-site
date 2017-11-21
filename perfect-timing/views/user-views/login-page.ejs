@@ -1,0 +1,20 @@
+<h2>Log In</h2>
+
+<%if (typeof errorMessage !== "undefined") {%>
+  <p>
+    <%=errorMessage%>
+  </p>
+<%}%>
+
+<form method="post" action="/process-login">
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email" placeholder="reginaphalange@gmail.com">
+  <br>
+  <label for="password-input">Password</label>
+  <input id="password-input" type="password" placeholder="e.g. alterego" name="loginPassword">
+  <p>
+  <button>Login</button>
+</form>
+
+<a href="/facebook/login">Login with Facebook.</a>
+<a href="/google/login">Login with Google.</a>
