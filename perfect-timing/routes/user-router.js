@@ -53,6 +53,10 @@ router.post("/process-signup", (req, res, next) => {
 
 // 1. show login form
 router.get("/login", (req, res, next) => {
+  if (req.user){
+    res.redirect("/");
+    return;
+  }
   res.render("user-views/login-page");
 });
 
@@ -65,6 +69,13 @@ router.post("/process-login", (req, res, next) => {
       res.render("user-views/login-page");
       return;
     }
+    const isPasswordGood = bcrypt.compareSync(req.body.loginPassword, userFromDb.encryptedPassword);
+    if (isPasswordGood === false) {
+      res.locals.errorMessage = "Password incorrect.";
+      res.render("user-views/login-page");
+      return;
+    }
+
     req.login(userFromDb, (err) => {
       if (err) {
         next(err);
@@ -72,8 +83,8 @@ router.post("/process-login", (req, res, next) => {
       else {
         res.redirect("/");
       }
-    });
-  })
+    }); // req.login()
+  }) // then()
   .catch((err) => {
     next(err);
   });

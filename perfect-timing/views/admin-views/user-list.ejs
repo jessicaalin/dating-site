@@ -1,0 +1,12 @@
+<h2>All Users</h2>
+
+<ul>
+  <%listOfUsers.forEach((oneUser) => {%>
+    <li>
+      <h3><%=oneUser.fullName%></h3>
+      <p>Email: <%=oneUser.email%></p>
+      <p>Facebook ID: <%=oneUser.facebookID%></p>
+      <p>Google ID: <%=oneUser.googleID%></p>
+    </li>
+  <%});%>
+</ul>

@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'Perfect Timing';
+app.locals.title = 'One Night Shift';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -53,6 +53,9 @@ app.use('/', index);
 
 const myUserRouter = require('./routes/user-router');
 app.use(myUserRouter);
+
+const myAdminRouter = require('./routes/admin-router');
+app.use(myAdminRouter);
 
 const myChatRouter = require('./routes/chat-router');
 app.use(myChatRouter);
