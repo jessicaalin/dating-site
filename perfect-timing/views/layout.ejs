@@ -7,8 +7,29 @@
   </head>
   <body>
     <header>
-      <a href="/logout">Log Out</a>
+      <h1><%= title %></h1>
+      <nav>
+        <a href="/">Home</a>
+        <% if (currentUser) { %>
+          <a href="/messages">Matches</a>
+          <a href="/messages">Messages</a>
+          <a href="/settings">Edit Profile</a>
+          <a href="/logout">Log Out</a>
+        <% } else { %>
+          <a href="/signup">Sign Up</a>
+          <a href="/login">Log In</a>
+        <% } %>
+      </nav>
+      <% if (currentUser && currentUser.role === "admin") { %>
+        <h2>Admin Zone</h2>
+        <nav>
+          <a href="/admin/users">All Users</a>
+        </nav>
+      <% } %>
     </header>
     <%- body %>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/main.js"></script>
   </body>
 </html>

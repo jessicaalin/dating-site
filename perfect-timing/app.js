@@ -54,6 +54,9 @@ app.use('/', index);
 const myUserRouter = require('./routes/user-router');
 app.use(myUserRouter);
 
+const myChatRouter = require('./routes/chat-router');
+app.use(myChatRouter);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');

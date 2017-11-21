@@ -35,7 +35,8 @@ body,
 }
 
 .game-header a,
-.menu-div a {
+.menu-div a,
+.attribution a {
   text-decoration: none;
   color: azure;
 }
@@ -77,7 +78,6 @@ canvas {
 
 .images img {
   width: 30%;
-  /*display: block;*/
   align-self: center;
 }
 
@@ -92,5 +92,8 @@ canvas {
 
 .images .arrow {
   width: 8%;
-  /*padding: 0px 10px;*/
+}
+
+.attribution {
+  padding-top: 20px;
 }
