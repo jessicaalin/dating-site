@@ -21,107 +21,38 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-// socket
+// start socket.io code
 
-var io = require('socket.io')(server);
+var io = require("socket.io")(server); // (server) typically set up as (http)
 
-var numUsers = 0;
-
-// for trying to save
-const ChatModel = require("../models/chat-model");
-
-io.on('connection', function (socket) {
-
-  // try to save
-  socket.emit('connected');
-    socket.broadcast.emit('connected');
-    socket.on('disconnect', function(){
-        io.emit('disconnect');
-    });
-    socket.on('chat message', function(msg){
-        io.emit('chat message', msg);
-        ChatModel.create({content:msg}, function (err,success) {
-            if(err)
-            {
-                //handle error
-            }
-            else{
-                //handle success
-            }
-        });
-      });
-  // end try to save
-
-  var addedUser = false;
-
-  // when the client emits 'new message', this listens and executes
-  socket.on('new message', function (data) {
-    // we tell the client to execute 'new message'
-    socket.broadcast.emit('new message', {
-      username: socket.username,
-      // username: req.user.fullName,
-      message: data
-    });
-  });
-
-  // when the client emits 'add user', this listens and executes
-  socket.on('add user', function (username) {
-    if (addedUser) return;
-
-    // we store the username in the socket session for this client
-    socket.username = username;
-    // socket.username = req.user.fullName;
-    ++numUsers;
-    addedUser = true;
-    socket.emit('login', {
-      numUsers: numUsers
-    });
-    // echo globally (all clients) that a person has connected
-    socket.broadcast.emit('user joined', {
-      username: socket.username,
-      // username: req.user.fullName,
-      numUsers: numUsers
-    });
-  });
-
-  // when the client emits 'typing', we broadcast it to others
-  socket.on('typing', function () {
-    socket.broadcast.emit('typing', {
-      username: socket.username
-      // username: req.user.fullName
-    });
-  });
-
-  // when the client emits 'stop typing', we broadcast it to others
-  socket.on('stop typing', function () {
-    socket.broadcast.emit('stop typing', {
-      username: socket.username
-      // username: req.user.fullName
-    });
-  });
-
-  // when the user disconnects.. perform this
-  socket.on('disconnect', function () {
-    if (addedUser) {
-      --numUsers;
-
-      // echo globally that this client has left
-      socket.broadcast.emit('user left', {
-        username: socket.username,
-        // username: req.user.fullName,
-        numUsers: numUsers
-      });
-    }
+io.on('connection', function(socket){
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
   });
 });
 
-// end socket
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+  });
+});
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
+
+// end socket.io code
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, function() {
+  console.log("listening on *:3000");
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
