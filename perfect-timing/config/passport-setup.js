@@ -24,7 +24,7 @@ passport.use(
   new FbStrategy(
     {
       clientID: "180932532486678",
-      clientSecret: "d3cfdc92a07e20c7d8218cb18b90b981",
+      clientSecret: "???",
       callbackURL: "/facebook/success"
     },
     // 2nd argument of FbStrategy
@@ -60,7 +60,7 @@ passport.use(
   new GoogleStrategy(
     {
       clientID: "43026424358-2kf5jnegvljsslbtt8nj61eqj3263ab3.apps.googleusercontent.com",
-      clientSecret: "uv1032uZwny5RZpWkKzHxzli",
+      clientSecret: "???",
       callbackURL: "/google/success",
       // error fix
       proxy: true

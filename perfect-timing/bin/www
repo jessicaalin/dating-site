@@ -22,11 +22,36 @@ app.set('port', port);
 var server = http.createServer(app);
 
 // socket
+
 var io = require('socket.io')(server);
 
 var numUsers = 0;
 
+// for trying to save
+const ChatModel = require("../models/chat-model");
+
 io.on('connection', function (socket) {
+
+  // try to save
+  socket.emit('connected');
+    socket.broadcast.emit('connected');
+    socket.on('disconnect', function(){
+        io.emit('disconnect');
+    });
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
+        ChatModel.create({content:msg}, function (err,success) {
+            if(err)
+            {
+                //handle error
+            }
+            else{
+                //handle success
+            }
+        });
+      });
+  // end try to save
+
   var addedUser = false;
 
   // when the client emits 'new message', this listens and executes
@@ -34,6 +59,7 @@ io.on('connection', function (socket) {
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new message', {
       username: socket.username,
+      // username: req.user.fullName,
       message: data
     });
   });
@@ -44,6 +70,7 @@ io.on('connection', function (socket) {
 
     // we store the username in the socket session for this client
     socket.username = username;
+    // socket.username = req.user.fullName;
     ++numUsers;
     addedUser = true;
     socket.emit('login', {
@@ -52,6 +79,7 @@ io.on('connection', function (socket) {
     // echo globally (all clients) that a person has connected
     socket.broadcast.emit('user joined', {
       username: socket.username,
+      // username: req.user.fullName,
       numUsers: numUsers
     });
   });
@@ -60,6 +88,7 @@ io.on('connection', function (socket) {
   socket.on('typing', function () {
     socket.broadcast.emit('typing', {
       username: socket.username
+      // username: req.user.fullName
     });
   });
 
@@ -67,6 +96,7 @@ io.on('connection', function (socket) {
   socket.on('stop typing', function () {
     socket.broadcast.emit('stop typing', {
       username: socket.username
+      // username: req.user.fullName
     });
   });
 
@@ -78,6 +108,7 @@ io.on('connection', function (socket) {
       // echo globally that this client has left
       socket.broadcast.emit('user left', {
         username: socket.username,
+        // username: req.user.fullName,
         numUsers: numUsers
       });
     }

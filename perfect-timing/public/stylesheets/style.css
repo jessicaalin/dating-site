@@ -16,12 +16,12 @@ a {
 
 /* socket CSS */
 /* Fix user-agent */
-html {
+/*html {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
-}
+}*/
 
-html, input {
+/*html, input {
   font-family:
     "HelveticaNeue-Light",
     "Helvetica Neue Light",
@@ -41,11 +41,11 @@ html, body {
 ul {
   list-style: none;
   word-wrap: break-word;
-}
+}*/
 
 /* Pages */
 
-.pages {
+/*.pages {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -56,11 +56,11 @@ ul {
   height: 100%;
   position: absolute;
   width: 100%;
-}
+}*/
 
 /* Login Page */
 
-.login.page {
+/*.login.page {
   background-color: #000;
 }
 
@@ -96,16 +96,16 @@ ul {
 .login.page .title, .login.page .usernameInput {
   color: #fff;
   font-weight: 100;
-}
+}*/
 
 /* Chat page */
-
+/*
 .chat.page {
   display: none;
-}
+}*/
 
 /* Font */
-
+/*
 .messages {
   font-size: 150%;
 }
@@ -119,11 +119,11 @@ ul {
   font-size: 70%;
   margin: 5px;
   text-align: center;
-}
+}*/
 
 /* Messages */
 
-.chatArea {
+/*.chatArea {
   height: 100%;
   padding-bottom: 60px;
 }
@@ -144,11 +144,11 @@ ul {
   overflow: hidden;
   padding-right: 15px;
   text-align: right;
-}
+}*/
 
 /* Input */
 
-.inputMessage {
+/*.inputMessage {
   border: 10px solid #000;
   bottom: 0;
   height: 60px;
@@ -158,5 +158,5 @@ ul {
   position: absolute;
   right: 0;
   width: 100%;
-}
-/* end socet CSS */
+}*/
+/* end socket CSS */
