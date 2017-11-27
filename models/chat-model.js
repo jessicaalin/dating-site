@@ -7,7 +7,7 @@ const chatSchema = new Schema(
     fullName: {
     type: String
     },
-    content: {
+    msg: {
       type: String
     },
     created: {

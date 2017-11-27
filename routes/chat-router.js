@@ -22,7 +22,7 @@ router.post("/process-chat", (req, res, next) => {
     return;
   }
   const theChat = new ChatModel({
-    content: req.body.chatContent,
+    msg: req.body.chatMsg,
     // owner: req.user._id
   });
   theChat.save()

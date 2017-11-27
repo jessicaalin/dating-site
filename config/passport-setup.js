@@ -26,6 +26,7 @@ passport.use(
       clientID: process.env.FACEBOOK_ID,
       clientSecret: process.env.FACEBOOK_SECRET,
       callbackURL: "/facebook/success",
+      // error fix
       proxy: true
     },
     // 2nd argument of FbStrategy
