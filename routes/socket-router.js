@@ -1,20 +1,17 @@
 const sharedsession = require("express-socket.io-session");
 const ChatModel = require("../models/chat-model");
-const mySession = require("../config/session-setup.js");
+const mySessionStore = require("../config/store-setup.js");
+const passportSocketIo = require("passport.socketio");
+const session = require("express-session");
 
 
 function socketSetup(io){
   io.use(
-    sharedsession(mySession, {
-      autoSave: true
+    passportSocketIo.authorize({
+      secret: "avoid errors",
+      store: mySessionStore
     })
   );
-
-  io.use(function(data, accept) {
-    console.log("--------------------------");
-    console.log(data.request.headers);
-    accept(null, true);
-  });
 
   io.on('connection', function(socket){
     console.log('a USER connected');
@@ -33,7 +30,7 @@ function socketSetup(io){
     socket.on('chat message', function(msg){
       var newMsg = new ChatModel({
         msg: msg,
-        // owner: req.user._id
+        owner: socket.request.user._id
       });
       newMsg.save(function(err) {
         if(err){
