@@ -24,35 +24,9 @@ var server = http.createServer(app);
 // start socket.io code
 
 var io = require("socket.io")(server); // (server) typically set up as (http)
-const ChatModel = require("../models/chat-model");
+const mySocket = require("../routes/socket-router");
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
-  });
-});
-
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
-  });
-});
-
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    var newMsg = new ChatModel({msg: msg});
-    newMsg.save(function(err) {
-      if(err){
-        console.log(err);
-      } else{
-        io.emit('chat message', msg);
-      }
-    });
-
-  });
-});
-
+mySocket(io);
 // end socket.io code
 
 /**

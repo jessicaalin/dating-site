@@ -5,12 +5,12 @@ const logger       = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
-const session      = require('express-session');
 const passport     = require('passport');
 
 require("dotenv").config();
 require("./config/mongoose-setup");
 require("./config/passport-setup");
+const mySession = require("./config/session-setup.js");
 
 
 const app = express();
@@ -30,13 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
-app.use(
-  session({
-    resave: true,
-    saveUnintialized: true,
-    secret: "avoid errors"
-  })
-);
+app.use(mySession);
 app.use(passport.initialize());
 app.use(passport.session());
 
