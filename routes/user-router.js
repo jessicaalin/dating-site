@@ -5,6 +5,22 @@ const router = express.Router();
 const passport = require("passport");
 
 
+// matches pages (user list)
+
+router.get("/matches", (req, res, next) => {
+  UserModel
+    .find()
+    .limit(10)
+    .exec()
+    .then((userResults) => {
+      res.locals.listOfUsers = userResults;
+      res.render("user-views/matches");
+    })
+    .catch((err) => {
+      next(err);
+    });
+});
+
 // 1. showing signup page
 router.get("/signup", (req, res, next) => {
   if(req.user) {
@@ -41,7 +57,7 @@ router.post("/process-signup", (req, res, next) => {
       encryptedPassword: scrambledPassword
     });
     return theUser.save();
-  })
+    })
   .then(() => {
     // 3. redirect upon success
     res.redirect("/");
@@ -89,6 +105,44 @@ router.post("/process-login", (req, res, next) => {
     next(err);
   });
 }); // router.post
+
+
+// edit profile
+
+router.get("/user/:userId", (req, res, next) => {
+  UserModel.findById(req.params.userId)
+  .then((userFromDb) => {
+    res.locals.currentUser = userFromDb;
+    res.render("user-views/edit-profile");
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
+router.post("/user/:userId", (req, res, next) => {
+  UserModel.findById(req.params.userId)
+  .then((userFromDb) => {
+    (userFromDb).set({
+      fullName: req.body.signupFullName,
+      bio: req.body.userBio
+    });
+    res.locals.currentUser = userFromDb;
+    return userFromDb.save();
+  })
+  .then(() => {
+    res.redirect(`/user/${req.params.userId}`);
+  })
+  .catch((err) => {
+    if (err.errors) {
+      res.locals.validationErrors = err.errors;
+      res.render("user-views/edit-profile");
+    }
+    else {
+      next(err);
+    }
+  });
+});
 
 // Facebook login
 router.get("/facebook/login", passport.authenticate("facebook"));

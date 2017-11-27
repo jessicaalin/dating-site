@@ -11,6 +11,12 @@ const userSchema = new Schema(
       type: String,
       match: [/.+@.+/, "Emails need an @ sign."]
     },
+    bio: {
+      type: String
+    },
+    dateAdded: {
+      type: Date
+    },
     encryptedPassword: {
       type: String,
     },

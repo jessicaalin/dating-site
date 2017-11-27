@@ -23,8 +23,8 @@ passport.deserializeUser((idFromSession, callback) => {
 passport.use(
   new FbStrategy(
     {
-      clientID: "180932532486678",
-      clientSecret: "???",
+      clientID: process.env.FACEBOOK_ID,
+      clientSecret: process.env.FACEBOOK_SECRET,
       callbackURL: "/facebook/success"
     },
     // 2nd argument of FbStrategy
@@ -59,8 +59,8 @@ passport.use(
 passport.use(
   new GoogleStrategy(
     {
-      clientID: "43026424358-2kf5jnegvljsslbtt8nj61eqj3263ab3.apps.googleusercontent.com",
-      clientSecret: "???",
+      clientID: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
       callbackURL: "/google/success",
       // error fix
       proxy: true

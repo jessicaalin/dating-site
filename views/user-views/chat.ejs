@@ -1,9 +1,11 @@
 <div class="">
-
-
+  <%# have to change current user%>
+  <h4>Speaking with <%=currentUser.fullName%></h4>
   <ul id="messages"></ul>
-  <form action="">
-    <input id="m" autocomplete="off" /><button>Send</button>
+  <form method="post" action="/process-chat">
+    <%# <label for="m"></label>%>
+    <input id="m" name="chatContent">
+    <button>Send</button>
   </form>
 
 </div>

@@ -13,7 +13,7 @@
         <% if (currentUser) { %>
           <a href="/matches">Matches</a>
           <a href="/chat">Messages</a>
-          <a href="/settings">Edit Profile</a>
+          <a href="/user/<%= currentUser._id %>">Edit Profile</a>
           <a href="/logout">Log Out</a>
         <% } else { %>
           <a href="/signup">Sign Up</a>
@@ -28,6 +28,6 @@
       <% } %>
     </header>
     <%- body %>
-    
+
   </body>
 </html>

@@ -1,0 +1,26 @@
+<h2>Edit Profile</h2>
+
+<% if (typeof validationErrors !== "undefined") { %>
+  <ul class="error">
+    <% for (let field in validationErrors) { %>
+      <li> <%= validationErrors[field].message %> </li>
+    <% } %>
+  </ul>
+<% } %>
+
+<form method="post" action="/user/<%= currentUser._id %>">
+  <label for="full-name-input">Full Name</label>
+  <input id="full-name-input" type="text" placeholder="Regina Phalange" name="signupFullName" value="<%=currentUser.fullName%>">
+  <br>
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email" placeholder="regina.phalange@gmail.com" name="signupEmail" value="<%=
+  currentUser.email%>">
+  <br>
+  <label for="schedule-input">Days Free</label>
+  <input id="schedule-input" type="checkbox" name="userSchedule" value="<%=currentUser.schedule%>">
+  <br>
+  <label for="bio-input">Bio</label>
+  <textarea id="bio-input" placeholder="I'm super cool and sexy." name="userBio"><%= currentUser.bio%></textarea>
+  <p>
+  <button>Save</button>
+</form>

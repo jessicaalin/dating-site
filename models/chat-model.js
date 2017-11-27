@@ -4,13 +4,22 @@ const Schema = mongoose.Schema;
 
 const chatSchema = new Schema(
   {
+    fullName: {
+    type: String
+    },
     content: {
       type: String
     },
     created: {
       type: Date,
       default: Date.now
+    },
+    owner: {
+      type: Schema.Types.ObjectId
     }
+  },
+  {
+    timestamps: true
   }
 );
 
