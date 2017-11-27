@@ -16,8 +16,37 @@
   <input id="email-input" type="email" placeholder="regina.phalange@gmail.com" name="signupEmail" value="<%=
   currentUser.email%>">
   <br>
-  <label for="schedule-input">Days Free</label>
-  <input id="schedule-input" type="checkbox" name="userSchedule" value="<%=currentUser.schedule%>">
+  <p>Days Off</p>
+  <ul>
+                <li>
+                	<input type="checkbox" id="mon"/>
+	                <label for="mon">MON</label>
+                </li>
+                <li>
+                	<input type="checkbox" id="tue"/>
+	                <label for="tue">TUE</label>
+                </li>
+                <li>
+                	<input type="checkbox" id="wed"/>
+	                <label for="wed">WED</label>
+                </li>
+                <li>
+                	<input type="checkbox" id="thur"/>
+	                <label for="thur">THUR</label>
+                </li>
+                <li>
+                	<input type="checkbox" id="fri"/>
+	                <label for="fri">FRI</label>
+                </li>
+                <li>
+                	<input type="checkbox" id="sat"/>
+	                <label for="sat">SAT</label>
+                </li>
+                <li>
+                	<input type="checkbox" id="sun"/>
+	                <label for="sun">SUN</label>
+                </li>
+              </ul>
   <br>
   <label for="bio-input">Bio</label>
   <textarea id="bio-input" placeholder="I'm super cool and sexy." name="userBio"><%= currentUser.bio%></textarea>
