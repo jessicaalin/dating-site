@@ -5,23 +5,6 @@ const router = express.Router();
 const passport = require("passport");
 
 
-// matches pages (user list)
-
-router.get("/matches", (req, res, next) => {
-  UserModel
-    .find()
-    // .exclude({name: "jade "})
-    .limit(10)
-    .exec()
-    .then((userResults) => {
-      res.locals.listOfUsers = userResults;
-      res.render("user-views/matches");
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
 // 1. showing signup page
 router.get("/signup", (req, res, next) => {
   if(req.user) {
@@ -108,6 +91,20 @@ router.post("/process-login", (req, res, next) => {
 }); // router.post
 
 
+// show profile
+
+router.get("/profile/:userId", (req, res, next) => {
+  UserModel.findById(req.params.userId)
+  .then((userFromDb) => {
+    res.locals.currentUser = userFromDb;
+    res.render("user-views/user-profile");
+  })
+  .catch((err) => {
+    next(err);
+  });
+});
+
+
 // edit profile
 
 router.get("/user/:userId", (req, res, next) => {
@@ -124,9 +121,16 @@ router.get("/user/:userId", (req, res, next) => {
 router.post("/user/:userId", (req, res, next) => {
   UserModel.findById(req.params.userId)
   .then((userFromDb) => {
+    console.log(req.body.userMon);
     (userFromDb).set({
       fullName: req.body.signupFullName,
-      bio: req.body.userBio
+      bio: req.body.userBio,
+      mon: req.body.userMon,
+      tue: req.body.userTue,
+      wed: req.body.userWed,
+      thur: req.body.userThur,
+      fri: req.body.userFri,
+      sat: req.body.userSat,
     });
     res.locals.currentUser = userFromDb;
     return userFromDb.save();

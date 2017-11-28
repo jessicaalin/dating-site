@@ -1,3 +1,11 @@
-<h2><%= currentUser.fullName %>'s Profile</h2>
+<h2>Your Profile</h2>
+
+<% if (typeof validationErrors !== "undefined") { %>
+  <ul class="error">
+    <% for (let field in validationErrors) { %>
+      <li> <%= validationErrors[field].message %> </li>
+    <% } %>
+  </ul>
+<% } %>
+
 <p>Bio: <%= currentUser.bio %></p>
-<%# <p>Joined: <%= currentUser./p>%>

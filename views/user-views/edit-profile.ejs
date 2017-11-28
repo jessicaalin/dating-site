@@ -16,37 +16,37 @@
   <input id="email-input" type="email" placeholder="regina.phalange@gmail.com" name="signupEmail" value="<%=
   currentUser.email%>">
   <br>
-  <p>Days Off</p>
-  <ul>
-                <li>
-                	<input type="checkbox" id="mon"/>
-	                <label for="mon">MON</label>
-                </li>
-                <li>
-                	<input type="checkbox" id="tue"/>
-	                <label for="tue">TUE</label>
-                </li>
-                <li>
-                	<input type="checkbox" id="wed"/>
-	                <label for="wed">WED</label>
-                </li>
-                <li>
-                	<input type="checkbox" id="thur"/>
-	                <label for="thur">THUR</label>
-                </li>
-                <li>
-                	<input type="checkbox" id="fri"/>
-	                <label for="fri">FRI</label>
-                </li>
-                <li>
-                	<input type="checkbox" id="sat"/>
-	                <label for="sat">SAT</label>
-                </li>
-                <li>
-                	<input type="checkbox" id="sun"/>
-	                <label for="sun">SUN</label>
-                </li>
-              </ul>
+  <p class="days">Days Off</p>
+  <ul class="days">
+    <li>
+      <label for="mon">Mon</label>
+    	<input type="checkbox" id="mon" name="userMon" value="<%=currentUser.mon%>">
+    </li>
+    <li>
+      <label for="tue">Tue</label>
+    	<input type="checkbox" id="tue" name="userTue" value="<%=currentUser.tue%>">
+    </li>
+    <li>
+      <label for="wed">Wed</label>
+    	<input type="checkbox" id="wed" name="userWed" value="<%=currentUser.wed%>">
+    </li>
+    <li>
+      <label for="thur">Thur</label>
+    	<input type="checkbox" id="thur" name="userThur" value="<%=currentUser.thur%>">
+    </li>
+    <li>
+      <label for="fri">Fri</label>
+    	<input type="checkbox" id="fri" name="userFri" value="<%=currentUser.fri%>">
+    </li>
+    <li>
+      <label for="sat">Sat</label>
+    	<input type="checkbox" id="sat" name="userSat" value="<%=currentUser.sat%>">
+    </li>
+    <li>
+      <label for="sun">Sun</label>
+    	<input type="checkbox" id="sun" name="userSun" value="<%=currentUser.sun%>">
+    </li>
+  </ul>
   <br>
   <label for="bio-input">Bio</label>
   <textarea id="bio-input" placeholder="I'm super cool and sexy." name="userBio"><%= currentUser.bio%></textarea>

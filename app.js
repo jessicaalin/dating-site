@@ -63,6 +63,9 @@ app.use(myAdminRouter);
 const myChatRouter = require('./routes/chat-router');
 app.use(myChatRouter);
 
+const myMatchRouter = require('./routes/match-router');
+app.use(myMatchRouter);
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
