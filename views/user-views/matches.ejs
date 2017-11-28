@@ -1,11 +1,16 @@
-<h2>Matches</h2>
-<p>Here are you future lovers!</p>
+<div class="matches-text">
+  <p>Here are you future lovers!</p>
+</div>
 
-<ul>
+
+<ul class="match-container">
   <% listOfUsers.forEach((oneUser) => { %>
-    <li>
+    <li class="matches">
       <h3> <%= oneUser.fullName %> </h3>
-      <a href="/match/<%=oneUser._id%>">Check Out</a>
+      <div class="match-button-container">
+        <a class="button match-button" href="/match/<%=oneUser._id%>">Check Out</a>
+        <a class="button match-button" href="">Message</a>
+      </div>
     </li>
   <% }); %>
 </ul>

@@ -121,9 +121,10 @@ router.get("/user/:userId", (req, res, next) => {
 router.post("/user/:userId", (req, res, next) => {
   UserModel.findById(req.params.userId)
   .then((userFromDb) => {
-    console.log(req.body.userMon);
     (userFromDb).set({
       fullName: req.body.signupFullName,
+      imageUrl: req.body.userImageUrl,
+      profession: req.body.userProfession,
       bio: req.body.userBio,
       mon: req.body.userMon,
       tue: req.body.userTue,
@@ -136,7 +137,7 @@ router.post("/user/:userId", (req, res, next) => {
     return userFromDb.save();
   })
   .then(() => {
-    res.redirect(`/user/${req.params.userId}`);
+    res.redirect(`/profile/${req.params.userId}`);
   })
   .catch((err) => {
     if (err.errors) {

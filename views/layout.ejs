@@ -7,28 +7,28 @@
   </head>
   <body>
     <header>
+      <div class="logo-name">
+      <img class="logo" src="../../images/heart-cal-pink.png" />
       <h1><%= title %></h1>
+      </div>
       <nav>
         <a href="/">Home</a>
         <% if (currentUser) { %>
           <a href="/matches">Matches</a>
           <a href="/chat">Messages</a>
           <a href="/profile/<%= currentUser._id %>">Profile</a>
-          <a href="/user/<%= currentUser._id %>">Edit Profile</a>
+          <% if (currentUser && currentUser.role === "admin") { %>
+              <a href="/admin/users">All Users</a>
+          <% } %>
           <a href="/logout">Log Out</a>
         <% } else { %>
           <a href="/signup">Sign Up</a>
-          <a href="/login">Log In</a>
+          <a class="" href="/login">Log In</a>
         <% } %>
       </nav>
-      <% if (currentUser && currentUser.role === "admin") { %>
-        <h2>Admin Zone</h2>
-        <nav>
-          <a href="/admin/users">All Users</a>
-        </nav>
-      <% } %>
-    </header>
-    <%- body %>
 
+    </header>
+    <hr>
+    <%- body %>
   </body>
 </html>

@@ -11,6 +11,12 @@ const userSchema = new Schema(
       type: String,
       match: [/.+@.+/, "Emails need an @ sign."]
     },
+    imageUrl: {
+      type: String
+    },
+    profession: {
+      type: String
+    },
     bio: {
       type: String
     },
