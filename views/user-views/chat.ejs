@@ -1,17 +1,14 @@
-<div class="">
+<div class="chat-container">
   <%# have to change current user%>
-  
+
   <ul id="messages"></ul>
+
   <form method="post" action="/process-chat">
-    <%# <label for="m"></label>%>
     <input id="m" name="chatMsg">
     <button>Send</button>
   </form>
 
 </div>
-<%# <script>
-  // var socket = io();
-</script>%>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>

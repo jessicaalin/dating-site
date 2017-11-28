@@ -7,6 +7,7 @@
   <% listOfUsers.forEach((oneUser) => { %>
     <li class="matches">
       <h3> <%= oneUser.fullName %> </h3>
+      <img src= "<%= oneUser.imageUrl%>">
       <div class="match-button-container">
         <a class="button match-button" href="/match/<%=oneUser._id%>">Check Out</a>
         <a class="button match-button" href="">Message</a>

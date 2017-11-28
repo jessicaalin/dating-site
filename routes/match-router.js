@@ -8,7 +8,6 @@ const router = express.Router();
 router.get("/matches", (req, res, next) => {
   UserModel
     .find()
-    // .exclude({name: "jade "})
     .limit(10)
     .exec()
     .then((userResults) => {

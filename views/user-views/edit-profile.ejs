@@ -16,7 +16,10 @@
     <br>
     <label for="profession-input">Profession</label>
     <input id="profession-input" type="text" placeholder="Dreamboat" name="userProfession" value="<%=currentUser.profession%>">
-    <p class="days">Days Off</p>
+    <br>
+    <label for="free-time-input">Free Time</label>
+    <input id="free-time-input" type="text" placeholder="Every other Wednesday night" name="userSchedule" value="<%=currentUser.schedule%>">
+    <!--<p class="days">Days Off</p>
     <ul class="days">
       <li>
         <label for="mon">M</label>
@@ -46,7 +49,7 @@
         <label for="sun">U</label>
       	<input type="checkbox" id="sun" name="userSun" value="<%=currentUser.sun%>">
       </li>
-    </ul>
+    </ul>-->
     <label for="bio-input">Bio</label><p>
     <textarea id="bio-input" placeholder="I'm super cool and sexy." name="userBio"><%= currentUser.bio%></textarea>
     <p>

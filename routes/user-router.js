@@ -44,7 +44,7 @@ router.post("/process-signup", (req, res, next) => {
     })
   .then(() => {
     // 3. redirect upon success
-    res.redirect("/");
+    res.redirect("/login");
   })
   .catch((err) => {
     next(err);
@@ -125,6 +125,7 @@ router.post("/user/:userId", (req, res, next) => {
       fullName: req.body.signupFullName,
       imageUrl: req.body.userImageUrl,
       profession: req.body.userProfession,
+      schedule: req.body.userSchedule,
       bio: req.body.userBio,
       mon: req.body.userMon,
       tue: req.body.userTue,

@@ -13,6 +13,22 @@ router.get('/chat', (req, res, next) => {
     return;
   }
   res.render('user-views/chat');
+  // ChatModel
+  // .find()
+  // .limit(10)
+  // .sort({dateAdded: -1})
+  // .exec()
+  // .then((chatFromDb) => {
+  //   res.locals.chatResults = chatFromDb;
+  //   res.render('user-views/chat');
+  // })
+  // .catch((err) => {
+  //   next(err);
+  // });
+  // PLUG THIS INTO CHAT.EJS LINE 5
+  // <% chatResults.forEach((oneChat) => { %>
+  //   <p><%=oneChat.msg%></p>
+  // <%})%>
 });
 
 // 2. process chats
@@ -21,18 +37,6 @@ router.post("/process-chat", (req, res, next) => {
     res.redirect("/login");
     return;
   }
-  // const theChat = new ChatModel({
-  //   msg: req.body.chatMsg,
-  //   owner: req.user._id
-  // });
-  // theChat.save()
-  // .then(() => {
-  //   // 3. redirect upon success
-  //   res.redirect("/chat");
-  // })
-  // .catch((err) => {
-  //   next(err);
-  // });
 });
 
 

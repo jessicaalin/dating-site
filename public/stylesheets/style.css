@@ -11,9 +11,14 @@ header {
   justify-content: center;
 }
 
+main {
+  margin: 100px auto
+}
+
 .logo {
  width: 50px;
  align-self: center;
+ padding-bottom: 0 !important;
 }
 
 .logo-name {
@@ -43,6 +48,10 @@ h1 {
   padding: 20px;
 }
 
+h3 {
+  padding: 20px;
+}
+
 a {
   padding: 20px;
   font-size: 20px;
@@ -51,6 +60,12 @@ a {
 
 p, h2, h3, form {
   font-size: 20px;
+}
+
+img {
+  max-width: 400px;
+  max-height: 400px;
+  padding-bottom: 10px;
 }
 
 .matches-text {
@@ -66,15 +81,19 @@ p, h2, h3, form {
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-.matches a {
-
+.chat-container {
+  padding: 50px;
+  margin: 50px auto;
+  width: 800px;
+  height: 500px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .profile-container {
   display: flex;
   flex-flow: row nowrap;
   padding: 50px;
-  margin-top: 100px;
+  margin: 100px auto;
   width: 1000px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -90,7 +109,6 @@ p, h2, h3, form {
 .edit-profile {
   display: flex;
   justify-content: center;
-  width:
 }
 
 .days {
@@ -115,7 +133,7 @@ p, h2, h3, form {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input {
+.form input, .form textarea{
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -172,6 +190,51 @@ p, h2, h3, form {
   text-align: center;
 }
 
+.index-container {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 60px 250px;
+}
+
+.index-img-container {
+  display: flex;
+  flex-flow: column;
+  margin: 0 auto;
+}
+
+.index-img-container img {
+  height: !important;
+}
+
+.thor {
+  -ms-transform: rotate(-10deg); /* IE 9 */
+  -webkit-transform: rotate(-10deg); /* Chrome, Safari, Opera */
+  transform: rotate(-10deg);
+}
+
+.diana {
+  -ms-transform: rotate(7deg); /* IE 9 */
+  -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+  transform: rotate(7deg);
+  align-self: center;
+}
+
+.index-text {
+  font-size: 40px;
+  text-align: center;
+  align-self: center;
+}
+
+footer {
+  font-weight: 100;
+  text-align: center;
+  padding-top: 70px;
+}
+
+footer img {
+  display: inline;
+  width: 1%;
+}
 
 .chat { margin: 0; padding: 0; box-sizing: border-box; }
 .chat form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }

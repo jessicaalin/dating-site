@@ -20,34 +20,38 @@ const userSchema = new Schema(
     bio: {
       type: String
     },
-    mon: {
-      type: Boolean,
-      default: false
+    // might not need schedule
+    schedule: {
+      type: String
     },
-    tue: {
-      type: Boolean,
-      default: false
-    },
-    wed: {
-      type: Boolean,
-      default: false
-    },
-    thur: {
-      type: Boolean,
-      default: false
-    },
-    fri: {
-      type: Boolean,
-      default: false
-    },
-    sat: {
-      type: Boolean,
-      default: false
-    },
-    sun: {
-      type: Boolean,
-      default: false
-    },
+    // mon: {
+    //   type: Boolean,
+    //   default: false
+    // },
+    // tue: {
+    //   type: Boolean,
+    //   default: false
+    // },
+    // wed: {
+    //   type: Boolean,
+    //   default: false
+    // },
+    // thur: {
+    //   type: Boolean,
+    //   default: false
+    // },
+    // fri: {
+    //   type: Boolean,
+    //   default: false
+    // },
+    // sat: {
+    //   type: Boolean,
+    //   default: false
+    // },
+    // sun: {
+    //   type: Boolean,
+    //   default: false
+    // },
     dateAdded: {
       type: Date
     },
