@@ -97,9 +97,14 @@ img {
 .profile-info h2 {
   font-size: 40px;
   padding-bottom: 20px;
+  text-indent: 20px;
 }
 .profile-info h3, p{
   padding-bottom: 10px;
+}
+
+.profile-info p {
+  text-indent: 20px;
 }
 
 .edit-profile {

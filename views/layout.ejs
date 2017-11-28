@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="icon" href="/images/heart-cal-coral.png">
   </head>
   <body>
     <header>
@@ -15,7 +16,6 @@
         <a href="/">Home</a>
         <% if (currentUser) { %>
           <a href="/matches">Matches</a>
-          <a href="/chat">Messages</a>
           <a href="/profile/<%= currentUser._id %>">Profile</a>
           <% if (currentUser && currentUser.role === "admin") { %>
               <a href="/admin/users">All Users</a>
