@@ -9,6 +9,7 @@ router.get("/matches", (req, res, next) => {
   UserModel
     .find()
     .limit(10)
+    .sort({createdAt: -1})
     .exec()
     .then((userResults) => {
       res.locals.listOfUsers = userResults;
