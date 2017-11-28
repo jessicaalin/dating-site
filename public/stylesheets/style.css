@@ -129,7 +129,7 @@ img {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input, .form textarea{
+.form input, .form textarea, .chatbox{
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -236,4 +236,4 @@ footer img {
 .chat form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
 #messages { list-style-type: none; margin: 0; padding: 0; }
 #messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { background: #eee; }
+#messages li:nth-child(odd) { background: rgba(235,93,107,.1); }
